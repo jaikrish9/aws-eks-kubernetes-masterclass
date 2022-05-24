@@ -96,7 +96,7 @@ metadata:
 ```
 
 ### Update All Deployment Manifests with Resources in Pod Template
-- In Fargate, it is super highly recommended to provide the `resources.requests, resources.limits` about `cpu and memory`.  Almost you can make it mandatory. 
+- In Fargate, it is super highly recommended to provide the `resources.requests, resources.limits` about `cpu and memory`.  Almost you can make it mandatory. [jk - Fargate host will be created with additional resources to handle kubelet & core components]
 - This will help Fargate to schedule a Fargate Host accordingly. 
 - As fargate follows `1:1` ratio `Host:Pod`, one pod per host concept, we defining `resources` section in pod template (Deployment pod template spec) should be our mandatory option.
 - Even if we forget to define `resources` in our Deployment Pod Template, low memory using pods like NGINX will come up, high memory using Apps like Spring Boot REST APIs will keep restarting continuously due to unavailable resources.
